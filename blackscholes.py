@@ -16,7 +16,6 @@ def calculate_call_put_price(s, k, t, sigma, r):
     d1 = (np.log(s / k) + (r + 0.5 * sigma**2) * t) / (sigma * np.sqrt(t))
     d2 = d1 - sigma * np.sqrt(t)
 
-    # Call and Put Option Prices
     call_price = s * norm.cdf(d1) - k * np.exp(-r * t) * norm.cdf(d2)
     put_price = k * np.exp(-r * t) * norm.cdf(-d2) - s * norm.cdf(-d1)
 
